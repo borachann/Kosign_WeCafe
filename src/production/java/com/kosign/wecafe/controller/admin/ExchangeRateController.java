@@ -22,7 +22,7 @@ public class ExchangeRateController {
 	private ExchangeService exchangeService;
 
 	
-	@RequestMapping(value="/admin/getchangerate", method=RequestMethod.GET)
+	@RequestMapping(value="/seller/getchangerate", method=RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> listExchange(){
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("data", exchangeService.getExchangerate());

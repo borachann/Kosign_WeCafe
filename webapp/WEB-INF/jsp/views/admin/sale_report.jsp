@@ -553,7 +553,7 @@ a {
 	 setCalendar();  
 	
 		var exchangerate = $.ajax({
-			 url: "${pageContext.request.contextPath}/admin/getchangerate", 
+			 url: "${pageContext.request.contextPath}/seller/getchangerate", 
 			 type: 'GET',
 			 datatype: 'JSON',
 			 async: false,

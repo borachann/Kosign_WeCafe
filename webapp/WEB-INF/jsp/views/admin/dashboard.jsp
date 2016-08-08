@@ -351,7 +351,7 @@
 			 
 			function getExchangeRate(){
 				$.ajax({
-					 url: "${pageContext.request.contextPath}/admin/getchangerate", 
+					 url: "${pageContext.request.contextPath}/seller/getchangerate", 
 					 type: 'GET',
 					 datatype: 'JSON',
 					beforeSend: function(xhr) {

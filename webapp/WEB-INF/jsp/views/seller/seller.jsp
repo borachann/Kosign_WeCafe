@@ -107,6 +107,9 @@
 #tblprint td{
 	border: 1px solid black;
 }
+.visted{
+visibility: hidden;
+}
 </style>
 
 </head>
@@ -186,8 +189,9 @@
 													src="${pageContext.request.contextPath}/resources/images/products/<%=products.get(i).getImage()%>">
 												<span id="Proname"> <%=products.get(i).getProductName()%></span>
 											</span>
-												<span class='col-md-4 pull-right'><select class='form-control' style='margin-top: 35px;' id='saleType' data-uQty="<%=products.get(i).getUnit().getQty()%>">
-										 	<option value="<%=products.get(i).getSalePrice()%>" data-unitQty="<%=products.get(i).getUnit().getQty()%>"><%=products.get(i).getUnit().getUnitName()%></option>
+												<span class='col-md-4 pull-right hidden'><select class='form-control' style='margin-top: 35px;' id='saleType' data-uQty="1">
+										 	
+										 	<option value="<%=products.get(i).getSalePrice()%>" data-unitQty="1"><%=products.get(i).getUnit().getUnitName()%></option>
 										 	<%-- <option value="<%=products.get(i).getCostPrice()%>" data-unitQty="1"><%=products.get(i).getUnit().getTo()%></option> --%>
 										 	<%
 											 	boolean existOption = true;
@@ -340,7 +344,7 @@
 											<span class="col-sm-5">
 												<input type="text" class="form-control" maxlength="30" name="txtName" id="qtytxt">
 											</span>
-											<span class="col-sm-7">
+											<span class="col-sm-7 visted">
 												<select class="form-control" id="editSaleType"></select>
 											</span>
 										</div>
@@ -402,8 +406,8 @@
 <hr>
 					<div class="form-horizontal">
 						<div>
-							<label class="control-label col-md-2" >លក់ជូន :</label>
-							<div class="col-md-3">
+							<label class="control-label col-md-2 visted" >លក់ជូន :</label>
+							<div class="col-md-3 visted">
 								<input type="text" class="form-control" maxlength="30"  id="tocusname"
 									style="margin-bottom: 2px;">
 							</div>
@@ -420,8 +424,8 @@
 							</div>
 						</div>
 						<div>
-							<label class="control-label col-md-2" >អាស័យ​ដ្ឋាន :</label>
-							<div class="col-md-3">
+							<label class="control-label col-md-2 visted" >អាស័យ​ដ្ឋាន :</label>
+							<div class="col-md-3 visted">
 								<input type="text" class="form-control" id="cusaddr"
 									style="margin-bottom: 2px;">
 							</div>
@@ -438,8 +442,8 @@
 							</div>
 						</div>
 						<div>
-							<label class="control-label col-md-2" >ទូរស័ព្ទ :</label>
-							<div class="col-md-3">
+							<label class="control-label col-md-2 visted" >ទូរស័ព្ទ :</label>
+							<div class="col-md-3 visted">
 								<input type="text" class="form-control" id="cusphone"
 									style="margin-bottom: 2px;">
 							</div>
@@ -457,8 +461,8 @@
 							</div>
 						</div>
 						<div>
-							<label class="control-label col-md-2" >ថ្ងៃខែឆ្នាំ :</label>
-							<div class="col-md-3">
+							<label class="control-label col-md-2 visted" >ថ្ងៃខែឆ្នាំ :</label>
+							<div class="col-md-3 visted">
 								<input type="text" class="form-control" id="cusdate" readonly="readonly"
 									style="margin-bottom: 2px;">
 							</div>
@@ -1212,7 +1216,7 @@
 						getsizeSession();
 						getordered();
 						var exchangerate = $.ajax({
-							 url: "${pageContext.request.contextPath}/admin/getchangerate", 
+							 url: "${pageContext.request.contextPath}/seller/getchangerate", 
 							 type: 'GET',
 							 datatype: 'JSON',
 							 async: false,
@@ -1715,7 +1719,7 @@ $("#btnconfirm").click(function() {
 								
 								alert("ការបព្ចារទិញ បានជោគជ័យ។");
 								//var restPayment = (parseInt($("#txtpay").val() * $("#exchangerate").val()) + parseInt($("#txtpayreil").val().replace(',', '')));
-								window.print();
+								//window.print();
 						    		location.href="${pageContext.request.contextPath}/seller/";
 								
 								/* if(restPayment < parseInt($("#totalreil").val().replace(',', ''))){
